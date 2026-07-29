@@ -1,0 +1,384 @@
+/* =========================================================
+   MRR Technology Solutions — Site Stylesheet (v1 draft)
+   Palette + type sourced from brand logo / concept notes
+   ========================================================= */
+
+:root{
+  --navy-950:#0B102C;
+  --navy-900:#131A3D;
+  --navy-800:#1B2450;
+  --cyan-500:#00A9C4;
+  --cyan-300:#5FD9EC;
+  --cyan-050:#E5FBFD;
+  --gold-400:#C9A66B;
+  --grey-500:#5A6473;
+  --grey-300:#8992A0;
+  --off-white:#F7F9FB;
+  --white:#FFFFFF;
+  --radius:14px;
+  --container:1240px;
+}
+
+*{box-sizing:border-box; margin:0; padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Manrope', sans-serif;
+  background:var(--off-white);
+  color:var(--navy-950);
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4{
+  font-family:'Cormorant Garamond', serif;
+  font-weight:600;
+  letter-spacing:0.01em;
+  line-height:1.15;
+}
+a{color:inherit; text-decoration:none;}
+ul{list-style:none;}
+img{max-width:100%; display:block;}
+button{font-family:inherit; cursor:pointer;}
+
+.eyebrow{
+  font-family:'Manrope', sans-serif;
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:0.28em;
+  text-transform:uppercase;
+  color:var(--cyan-500);
+}
+.on-dark .eyebrow{color:var(--cyan-300);}
+
+.container{max-width:var(--container); margin:0 auto; padding:0 32px;}
+.section{max-width:var(--container); margin:0 auto; padding:100px 32px;}
+.section--tight{padding-top:0;}
+.section-head{max-width:660px; margin:0 auto 56px; text-align:center;}
+.section-head .eyebrow{justify-content:center; display:flex; margin-bottom:14px;}
+.section-head h2{font-size:clamp(30px,4vw,44px); color:var(--navy-950);}
+.section-head p{margin-top:16px; color:var(--grey-500); font-size:15.5px;}
+.section-head.align-left{text-align:left; margin-left:0;}
+.section-head.align-left .eyebrow{justify-content:flex-start;}
+
+.btn{
+  display:inline-block;
+  padding:15px 32px;
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  border-radius:2px;
+  border:1px solid transparent;
+}
+.btn-primary{background:var(--cyan-500); color:#fff; border-color:var(--cyan-500);}
+.btn-primary:hover{background:#0093AB;}
+.btn-ghost{background:transparent; color:#fff; border-color:rgba(255,255,255,0.55);}
+.btn-ghost:hover{border-color:#fff;}
+.btn-ghost-dark{background:transparent; color:var(--navy-950); border-color:var(--navy-950);}
+.btn-gold{background:var(--gold-400); color:#0B102C; border-color:var(--gold-400);}
+.btn-gold:hover{background:#b8945a;}
+.btn-row{display:flex; gap:16px; flex-wrap:wrap;}
+
+/* =========================================================
+   NAV
+   ========================================================= */
+.site-header{position:sticky; top:0; z-index:50; background:var(--navy-950);}
+.site-nav{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:18px 32px;
+  max-width:var(--container);
+  margin:0 auto;
+}
+.site-nav .logo{display:flex; align-items:center; gap:10px;}
+.site-nav .logo img{height:32px; width:auto; filter:brightness(0) invert(1);}
+.site-nav .logo-text{font-family:'Cormorant Garamond',serif; font-weight:700; font-size:15px; letter-spacing:0.14em; color:#fff;}
+.site-nav .logo-text span{display:block; font-family:'Manrope',sans-serif; font-size:8.5px; letter-spacing:0.24em; color:var(--cyan-300); font-weight:700;}
+.nav-links{display:flex; gap:34px; align-items:center;}
+.nav-links a{font-size:12.5px; letter-spacing:0.08em; text-transform:uppercase; color:#EAF6F8; font-weight:600; opacity:0.85; transition:opacity .15s;}
+.nav-links a:hover, .nav-links a.active{opacity:1; color:var(--cyan-300);}
+.nav-cta{
+  border:1px solid var(--cyan-300);
+  padding:10px 22px;
+  font-size:11.5px;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  color:#fff;
+  border-radius:2px;
+  font-weight:700;
+  white-space:nowrap;
+}
+.nav-toggle{display:none; flex-direction:column; gap:5px; background:none; border:none; padding:6px;}
+.nav-toggle span{width:22px; height:2px; background:#fff; display:block;}
+
+/* =========================================================
+   HERO — full (home)
+   ========================================================= */
+.hero{
+  position:relative;
+  min-height:88vh;
+  display:flex;
+  flex-direction:column;
+  color:#fff;
+  overflow:hidden;
+}
+.hero .frame{position:absolute; inset:0; border-radius:0; z-index:0;}
+.hero .frame::after{
+  content:"";
+  position:absolute; inset:0;
+  background:linear-gradient(180deg, rgba(6,10,28,0.55) 0%, rgba(6,10,28,0.35) 40%, rgba(6,10,28,0.88) 100%);
+  z-index:1;
+}
+.hero-content{position:relative; z-index:2; margin:auto; text-align:center; max-width:780px; padding:60px 24px;}
+.hero-content .eyebrow{justify-content:center; display:flex; margin-bottom:18px;}
+.hero-content h1{font-size:clamp(38px, 5.6vw, 70px); color:#fff; text-shadow:0 2px 30px rgba(0,0,0,0.35);}
+.hero-content h1 em{font-style:normal; color:var(--cyan-300);}
+.hero-content p{margin-top:22px; font-size:16.5px; color:#D8E4EA; max-width:580px; margin-left:auto; margin-right:auto;}
+.hero-content .btn-row{justify-content:center; margin-top:36px;}
+.hero-stats{
+  position:relative; z-index:2;
+  display:flex; justify-content:center; gap:64px; flex-wrap:wrap;
+  padding:30px 24px 40px;
+  border-top:1px solid rgba(255,255,255,0.14);
+}
+.hero-stats .stat{text-align:center;}
+.hero-stats .stat b{display:block; font-family:'Cormorant Garamond',serif; font-size:28px;}
+.hero-stats .stat span{font-size:10.5px; letter-spacing:0.14em; text-transform:uppercase; color:var(--grey-300);}
+
+/* =========================================================
+   HERO — inner (sub-pages)
+   ========================================================= */
+.inner-hero{
+  position:relative;
+  min-height:46vh;
+  display:flex;
+  align-items:center;
+  color:#fff;
+  overflow:hidden;
+}
+.inner-hero .frame{position:absolute; inset:0; border-radius:0; z-index:0;}
+.inner-hero .frame::after{
+  content:"";
+  position:absolute; inset:0;
+  background:linear-gradient(180deg, rgba(6,10,28,0.6), rgba(6,10,28,0.75));
+  z-index:1;
+}
+.inner-hero-content{position:relative; z-index:2; max-width:var(--container); margin:0 auto; padding:80px 32px 56px;}
+.inner-hero-content .eyebrow{margin-bottom:14px;}
+.inner-hero-content h1{font-size:clamp(34px,5vw,56px); color:#fff;}
+.inner-hero-content p{margin-top:16px; max-width:560px; color:#D8E4EA; font-size:15.5px;}
+.breadcrumb{font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--grey-300); margin-bottom:18px;}
+.breadcrumb a{color:var(--cyan-300);}
+
+/* =========================================================
+   IMAGE PLACEHOLDER / FRAME SYSTEM
+   Real <img> tags with graceful fallback until files are
+   uploaded to assets/images/ with the matching filename.
+   object-fit: contain -> uploaded photos are never cropped,
+   they letterbox inside the fixed-aspect panel instead.
+   ========================================================= */
+.frame{
+  position:relative;
+  overflow:hidden;
+  border-radius:var(--radius);
+  background:
+    linear-gradient(155deg, rgba(11,16,44,0.92), rgba(0,169,196,0.55)),
+    repeating-linear-gradient(45deg, #10173a, #10173a 12px, #16204a 12px, #16204a 24px);
+  width:100%;
+}
+.frame img{
+  position:absolute; inset:0;
+  width:100%; height:100%;
+  object-fit:contain;
+  object-position:center;
+  background:transparent;
+  opacity:0;
+  transition:opacity .25s ease;
+}
+.frame.is-loaded img{opacity:1;}
+.frame.is-loaded{background:var(--navy-950);}
+.frame-fallback{
+  position:absolute; inset:0;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  text-align:center; gap:6px; padding:18px;
+  color:#fff;
+  transition:opacity .2s ease;
+}
+.frame-fallback .icon{font-size:26px; opacity:0.55; margin-bottom:2px;}
+.frame-fallback em{
+  font-style:normal; font-family:'Manrope',sans-serif; font-size:11px; font-weight:700;
+  letter-spacing:0.03em; color:var(--cyan-300); word-break:break-all;
+}
+.frame-fallback small{font-size:10.5px; color:rgba(255,255,255,0.65); max-width:240px;}
+.frame.is-loaded .frame-fallback{opacity:0; pointer-events:none;}
+
+/* fixed aspect ratios so real photos drop in without layout shift */
+.frame--wide{aspect-ratio:21/9;}
+.frame--banner{aspect-ratio:16/9;}
+.frame--landscape{aspect-ratio:4/3;}
+.frame--portrait{aspect-ratio:4/5;}
+.frame--square{aspect-ratio:1/1;}
+.frame--tall{aspect-ratio:2/3;}
+.frame--fill{position:absolute; inset:0; aspect-ratio:auto; border-radius:0;}
+
+/* =========================================================
+   CARDS (experiences / generic)
+   ========================================================= */
+.cards{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:28px;}
+.cards.cards-2{grid-template-columns:repeat(2,minmax(0,1fr));}
+.card{background:#fff; border-radius:var(--radius); overflow:hidden; box-shadow:0 10px 30px rgba(11,16,44,0.08);}
+.card .frame{border-radius:0;}
+.card .body{padding:26px 24px 30px;}
+.card .body .eyebrow{margin-bottom:8px;}
+.card .body h3{font-size:22px; color:var(--navy-950); margin-bottom:8px;}
+.card .body p{font-size:14px; color:var(--grey-500);}
+.card .body .link{display:inline-block; margin-top:16px; font-size:11.5px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--navy-950); border-bottom:1px solid var(--gold-400); padding-bottom:3px;}
+
+/* =========================================================
+   FLEET GRID
+   ========================================================= */
+.fleet-grid{display:grid; grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) minmax(0,1fr); gap:20px; min-width:0;}
+.fleet-grid > *{min-width:0;}
+.fleet-grid .col{display:flex; flex-direction:column; gap:20px; min-width:0;}
+.fleet-grid .col > *{min-width:0;}
+.fleet-grid .frame{border-radius:var(--radius); height:100%; min-width:0;}
+.vessel-cards{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:28px; margin-top:60px;}
+.vessel-card{background:#fff; border-radius:var(--radius); overflow:hidden; box-shadow:0 10px 30px rgba(11,16,44,0.08);}
+.vessel-card .body{padding:22px 24px 26px;}
+.vessel-card h3{font-size:21px; margin-bottom:6px;}
+.vessel-card .specs{display:flex; gap:14px; margin:10px 0; flex-wrap:wrap;}
+.vessel-card .specs span{font-size:11px; letter-spacing:0.05em; text-transform:uppercase; color:var(--grey-500); background:var(--off-white); padding:5px 10px; border-radius:20px;}
+.vessel-card p{font-size:13.5px; color:var(--grey-500);}
+
+/* =========================================================
+   DARK / INNOVATION SECTIONS
+   ========================================================= */
+.dark-section{background:linear-gradient(180deg, var(--navy-950), #060a1c); color:#fff; padding:100px 32px;}
+.dark-section .container{max-width:var(--container); margin:0 auto;}
+.dark-section p{color:#C9D3DA;}
+.split{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:64px; align-items:center;}
+.split.reverse{direction:rtl;}
+.split.reverse > *{direction:ltr;}
+.facts-grid{display:grid; grid-template-columns:1fr 1fr; gap:18px 28px; margin-top:26px;}
+.facts-grid div{border-left:2px solid var(--cyan-500); padding-left:14px;}
+.facts-grid b{display:block; font-family:'Cormorant Garamond',serif; font-size:24px;}
+.facts-grid span{font-size:11.5px; color:var(--grey-300); letter-spacing:0.03em;}
+
+/* =========================================================
+   ROADMAP / TIMELINE (Innovation page)
+   ========================================================= */
+.roadmap{display:grid; grid-template-columns:repeat(6,minmax(0,1fr)); gap:16px; margin-top:20px;}
+.roadmap .step{background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.1); border-radius:12px; padding:22px 16px; text-align:center;}
+.roadmap .step b{display:block; font-family:'Cormorant Garamond',serif; font-size:30px; color:var(--cyan-300); margin-bottom:10px;}
+.roadmap .step span{font-size:12px; color:#D8E4EA; line-height:1.4; display:block;}
+
+/* =========================================================
+   IMPACT GRID
+   ========================================================= */
+.impact-grid{display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:24px; margin-top:10px;}
+.impact-card{background:#fff; border-radius:var(--radius); padding:28px 22px; box-shadow:0 8px 22px rgba(11,16,44,0.06);}
+.impact-card h4{font-size:19px; margin-bottom:12px; color:var(--navy-950);}
+.impact-card ul li{font-size:13.5px; color:var(--grey-500); margin-bottom:6px; padding-left:14px; position:relative;}
+.impact-card ul li::before{content:"—"; position:absolute; left:0; color:var(--cyan-500);}
+
+.tag-row{display:flex; flex-wrap:wrap; gap:10px; margin-top:24px;}
+.tag{font-size:11px; letter-spacing:0.06em; text-transform:uppercase; padding:8px 16px; border:1px solid rgba(255,255,255,0.18); border-radius:20px; color:#D8E4EA;}
+
+/* =========================================================
+   QUOTE
+   ========================================================= */
+.quote-section{background:var(--cyan-050); padding:90px 32px; text-align:center;}
+.quote-section blockquote{max-width:760px; margin:0 auto; font-family:'Cormorant Garamond', serif; font-size:clamp(24px,3vw,34px); color:var(--navy-950); font-style:italic;}
+.quote-section cite{display:block; margin-top:22px; font-style:normal; font-size:12px; letter-spacing:0.12em; text-transform:uppercase; color:var(--grey-500);}
+
+/* =========================================================
+   FOUNDERS / TEAM
+   ========================================================= */
+.team-grid{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:40px; margin-top:20px;}
+.team-card{display:flex; gap:24px; align-items:flex-start;}
+.team-card .frame{width:150px; flex:0 0 150px; border-radius:var(--radius);}
+.team-card h3{font-size:22px; margin-bottom:4px;}
+.team-card .role{color:var(--cyan-500); font-size:11.5px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:10px; display:block;}
+.team-card p{font-size:13.5px; color:var(--grey-500);}
+
+/* =========================================================
+   DESTINATIONS
+   ========================================================= */
+.dest-grid{display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:22px;}
+.dest-card{position:relative; border-radius:var(--radius); overflow:hidden;}
+.dest-card .frame{aspect-ratio:3/4;}
+.dest-card .label{position:absolute; left:0; right:0; bottom:0; z-index:2; padding:20px; background:linear-gradient(0deg, rgba(0,0,0,0.75), transparent);}
+.dest-card .label b{color:#fff; font-family:'Cormorant Garamond',serif; font-size:20px; display:block;}
+.dest-card .label span{color:var(--cyan-300); font-size:10.5px; letter-spacing:0.08em; text-transform:uppercase;}
+.dest-card.is-primary .label b::after{content:" ★"; color:var(--gold-400); font-size:14px;}
+
+/* =========================================================
+   CONTACT / FORM
+   ========================================================= */
+.contact-grid{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:60px; align-items:start;}
+.contact-info .item{display:flex; gap:16px; margin-bottom:26px;}
+.contact-info .item .ic{
+  width:44px; height:44px; border-radius:50%; background:var(--cyan-050); color:var(--cyan-500);
+  display:flex; align-items:center; justify-content:center; font-size:18px; flex:0 0 44px;
+}
+.contact-info .item h4{font-size:15px; margin-bottom:4px;}
+.contact-info .item p, .contact-info .item a{font-size:13.5px; color:var(--grey-500); display:block;}
+.form-card{background:#fff; border-radius:var(--radius); padding:36px; box-shadow:0 10px 30px rgba(11,16,44,0.08);}
+.form-row{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:16px;}
+.field{margin-bottom:18px;}
+.field label{display:block; font-size:11.5px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:var(--grey-500); margin-bottom:8px;}
+.field input, .field select, .field textarea{
+  width:100%; padding:13px 14px; border:1px solid #E1E6EB; border-radius:6px; font-family:inherit; font-size:14px; color:var(--navy-950); background:var(--off-white);
+}
+.field textarea{resize:vertical; min-height:110px;}
+.form-note{font-size:12px; color:var(--grey-300); margin-top:14px;}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+footer{background:var(--navy-950); color:var(--grey-300); padding:70px 32px 30px;}
+.footer-inner{max-width:var(--container); margin:0 auto; display:grid; grid-template-columns:minmax(0,1.4fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1fr); gap:40px;}
+.footer-inner h4{font-family:'Manrope',sans-serif; font-size:12px; letter-spacing:0.12em; text-transform:uppercase; color:#fff; margin-bottom:16px; font-weight:700;}
+.footer-inner p, .footer-inner a{font-size:13.5px; color:var(--grey-300); display:block; margin-bottom:10px;}
+.footer-logo{display:flex; align-items:center; gap:10px; margin-bottom:18px;}
+.footer-logo img{height:28px; filter:brightness(0) invert(1);}
+.footer-logo span{font-family:'Cormorant Garamond',serif; color:#fff; font-weight:700; letter-spacing:0.1em; font-size:15px;}
+.footer-bottom{max-width:var(--container); margin:50px auto 0; padding-top:24px; border-top:1px solid rgba(255,255,255,0.1); display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; font-size:11.5px; color:var(--grey-500);}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+@media(max-width:980px){
+  .cards{grid-template-columns:1fr 1fr;}
+  .impact-grid{grid-template-columns:1fr 1fr;}
+  .roadmap{grid-template-columns:repeat(3,1fr);}
+  .fleet-grid{grid-template-columns:1fr 1fr;}
+  .vessel-cards{grid-template-columns:1fr 1fr;}
+  .dest-grid{grid-template-columns:1fr 1fr;}
+  .team-grid{grid-template-columns:1fr;}
+}
+@media(max-width:720px){
+  .nav-links{
+    position:absolute; top:100%; left:0; right:0;
+    background:var(--navy-950);
+    flex-direction:column; align-items:flex-start; gap:0;
+    max-height:0; overflow:hidden; padding:0 32px;
+    transition:max-height .25s ease, padding .25s ease;
+  }
+  .nav-links.open{max-height:400px; padding:16px 32px 26px;}
+  .nav-links a{padding:12px 0; width:100%; border-bottom:1px solid rgba(255,255,255,0.08);}
+  .nav-cta{display:none;}
+  .nav-toggle{display:flex;}
+  .cards{grid-template-columns:1fr;}
+  .cards.cards-2{grid-template-columns:1fr;}
+  .split{grid-template-columns:1fr;}
+  .impact-grid{grid-template-columns:1fr;}
+  .roadmap{grid-template-columns:1fr 1fr;}
+  .fleet-grid{grid-template-columns:1fr;}
+  .vessel-cards{grid-template-columns:1fr;}
+  .dest-grid{grid-template-columns:1fr 1fr;}
+  .contact-grid{grid-template-columns:1fr;}
+  .form-row{grid-template-columns:1fr;}
+  .footer-inner{grid-template-columns:1fr 1fr;}
+  .hero-stats{gap:34px;}
+}
